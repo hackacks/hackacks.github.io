@@ -1,13 +1,621 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>ArunKumar N</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arunkumar N | Cloud Architect &amp; DevOps Engineer</title>
+  <meta name="description" content="Arunkumar N - Cloud Architect & DevOps Engineer specializing in AWS, Linux, Kubernetes, Terraform, and CI/CD.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card-bg: rgba(22, 27, 38, 0.7);
+      --card-hover: rgba(30, 38, 54, 0.85);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(56, 189, 248, 0.35);
+      --primary: #38bdf8;
+      --accent: #818cf8;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(56, 189, 248, 0.08) 0%, transparent 40%),
+        radial-gradient(circle at 85% 65%, rgba(129, 140, 248, 0.07) 0%, transparent 40%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* Minimal Header */
+    header {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      letter-spacing: -0.01em;
+    }
+
+    .logo-badge {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      color: #0b0f17;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    .header-links {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .header-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s ease;
+    }
+
+    .header-links a:hover {
+      color: var(--primary);
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 60px 0 80px;
+    }
+
+    /* Hero */
+    .hero {
+      margin-bottom: 56px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      color: var(--primary);
+      font-size: 0.825rem;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 20px;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: #34d399;
+    }
+
+    .hero-name {
+      font-size: 2.75rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 8px;
+      background: linear-gradient(135deg, #ffffff 30%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 18px;
+    }
+
+    .hero-bio {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 680px;
+      line-height: 1.7;
+    }
+
+    /* Section Component */
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 20px;
+      color: var(--text);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* Tech Stack Pills */
+    .skills-section {
+      margin-bottom: 52px;
+    }
+
+    .tech-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tech-pill {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+      padding: 8px 16px;
+      border-radius: 8px;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-weight: 500;
+      border: 1px solid transparent;
+      background: var(--card-bg);
+      cursor: default;
+    }
+
+    .tech-pill .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+
+    /* AWS */
+    .pill-aws {
+      color: #fbbf24;
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.28);
+    }
+    .pill-aws .dot { background: #f59e0b; box-shadow: 0 0 8px rgba(245, 158, 11, 0.6); }
+    .pill-aws:hover {
+      background: rgba(245, 158, 11, 0.16);
+      border-color: #f59e0b;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(245, 158, 11, 0.25);
+    }
+
+    /* Linux */
+    .pill-linux {
+      color: #fef08a;
+      background: rgba(234, 179, 8, 0.08);
+      border-color: rgba(234, 179, 8, 0.28);
+    }
+    .pill-linux .dot { background: #eab308; box-shadow: 0 0 8px rgba(234, 179, 8, 0.6); }
+    .pill-linux:hover {
+      background: rgba(234, 179, 8, 0.16);
+      border-color: #eab308;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(234, 179, 8, 0.25);
+    }
+
+    /* Kubernetes */
+    .pill-k8s {
+      color: #93c5fd;
+      background: rgba(59, 130, 246, 0.08);
+      border-color: rgba(59, 130, 246, 0.28);
+    }
+    .pill-k8s .dot { background: #3b82f6; box-shadow: 0 0 8px rgba(59, 130, 246, 0.6); }
+    .pill-k8s:hover {
+      background: rgba(59, 130, 246, 0.16);
+      border-color: #3b82f6;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(59, 130, 246, 0.25);
+    }
+
+    /* Docker */
+    .pill-docker {
+      color: #38bdf8;
+      background: rgba(56, 189, 248, 0.08);
+      border-color: rgba(56, 189, 248, 0.28);
+    }
+    .pill-docker .dot { background: #0ea5e9; box-shadow: 0 0 8px rgba(14, 165, 233, 0.6); }
+    .pill-docker:hover {
+      background: rgba(56, 189, 248, 0.16);
+      border-color: #38bdf8;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(56, 189, 248, 0.25);
+    }
+
+    /* Terraform */
+    .pill-terraform {
+      color: #c084fc;
+      background: rgba(192, 132, 252, 0.08);
+      border-color: rgba(192, 132, 252, 0.28);
+    }
+    .pill-terraform .dot { background: #a855f7; box-shadow: 0 0 8px rgba(168, 85, 247, 0.6); }
+    .pill-terraform:hover {
+      background: rgba(192, 132, 252, 0.16);
+      border-color: #c084fc;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(192, 132, 252, 0.25);
+    }
+
+    /* CI/CD */
+    .pill-cicd {
+      color: #34d399;
+      background: rgba(52, 211, 153, 0.08);
+      border-color: rgba(52, 211, 153, 0.28);
+    }
+    .pill-cicd .dot { background: #10b981; box-shadow: 0 0 8px rgba(16, 185, 129, 0.6); }
+    .pill-cicd:hover {
+      background: rgba(52, 211, 153, 0.16);
+      border-color: #34d399;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(52, 211, 153, 0.25);
+    }
+
+    /* GitHub Actions */
+    .pill-actions {
+      color: #818cf8;
+      background: rgba(129, 140, 248, 0.08);
+      border-color: rgba(129, 140, 248, 0.28);
+    }
+    .pill-actions .dot { background: #6366f1; box-shadow: 0 0 8px rgba(99, 102, 241, 0.6); }
+    .pill-actions:hover {
+      background: rgba(129, 140, 248, 0.16);
+      border-color: #818cf8;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(129, 140, 248, 0.25);
+    }
+
+    /* Prometheus */
+    .pill-prometheus {
+      color: #f87171;
+      background: rgba(248, 113, 113, 0.08);
+      border-color: rgba(248, 113, 113, 0.28);
+    }
+    .pill-prometheus .dot { background: #ef4444; box-shadow: 0 0 8px rgba(239, 68, 68, 0.6); }
+    .pill-prometheus:hover {
+      background: rgba(248, 113, 113, 0.16);
+      border-color: #f87171;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(248, 113, 113, 0.25);
+    }
+
+    /* Grafana */
+    .pill-grafana {
+      color: #fb923c;
+      background: rgba(251, 146, 60, 0.08);
+      border-color: rgba(251, 146, 60, 0.28);
+    }
+    .pill-grafana .dot { background: #f97316; box-shadow: 0 0 8px rgba(249, 115, 22, 0.6); }
+    .pill-grafana:hover {
+      background: rgba(251, 146, 60, 0.16);
+      border-color: #fb923c;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(251, 146, 60, 0.25);
+    }
+
+    /* Python */
+    .pill-python {
+      color: #67e8f9;
+      background: rgba(103, 232, 249, 0.08);
+      border-color: rgba(103, 232, 249, 0.28);
+    }
+    .pill-python .dot { background: #facc15; box-shadow: 0 0 8px rgba(250, 204, 21, 0.6); }
+    .pill-python:hover {
+      background: rgba(103, 232, 249, 0.16);
+      border-color: #67e8f9;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(103, 232, 249, 0.25);
+    }
+
+    /* Bash & Shell */
+    .pill-bash {
+      color: #4ade80;
+      background: rgba(74, 222, 128, 0.08);
+      border-color: rgba(74, 222, 128, 0.28);
+    }
+    .pill-bash .dot { background: #22c55e; box-shadow: 0 0 8px rgba(34, 197, 94, 0.6); }
+    .pill-bash:hover {
+      background: rgba(74, 222, 128, 0.16);
+      border-color: #4ade80;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(74, 222, 128, 0.25);
+    }
+
+    /* Focus Area Cards */
+    .focus-section {
+      margin-bottom: 52px;
+    }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 16px;
+    }
+
+    .focus-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: all 0.25s ease;
+    }
+
+    .focus-card:hover {
+      border-color: var(--border-hover);
+      background: var(--card-hover);
+      transform: translateY(-2px);
+    }
+
+    .focus-icon {
+      color: var(--primary);
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+
+    .focus-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+
+    .focus-card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* Social / Connect Bar */
+    .connect-section {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .connect-info h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .connect-info p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .social-buttons {
+      display: flex;
+      gap: 12px;
+    }
+
+    .btn-social {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-social:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 28px 0;
+      color: #64748b;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .hero-name {
+        font-size: 2.1rem;
+      }
+      .hero-title {
+        font-size: 1.1rem;
+      }
+      .connect-section {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .social-buttons {
+        width: 100%;
+      }
+      .btn-social {
+        flex: 1;
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Arunkumar N</h1>
-  <p>Cloud Architect / DevOps Engineer</p>
-  <p>AWS, Linux, Kubernetes, Terraform, CI/CD</p>
+
+  <!-- Minimal Header -->
+  <header>
+    <div class="container header-content">
+      <a href="#" class="logo">
+        <span class="logo-badge">AN</span>
+        <span>Arunkumar N</span>
+      </a>
+      <div class="header-links">
+        <a href="https://github.com/hackacks" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/arunkumarn003/" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero / Profile -->
+    <section class="hero">
+      <div class="badge">
+        <span class="badge-dot"></span>
+        <span>Cloud Architect &amp; DevOps Engineer</span>
+      </div>
+      <h1 class="hero-name">Arunkumar N</h1>
+      <div class="hero-title">Architecting Resilient Cloud &amp; Infrastructure</div>
+      <p class="hero-bio">
+        Passionate about designing scalable cloud systems, automating infrastructure deployments, and optimizing containerized workloads with modern DevOps practices.
+      </p>
+    </section>
+
+    <!-- Tech Stack -->
+    <section class="skills-section">
+      <h2 class="section-title">Core Technologies</h2>
+      <div class="tech-list">
+        <span class="tech-pill pill-linux"><span class="dot"></span>Linux</span>
+        <span class="tech-pill pill-bash"><span class="dot"></span>Bash &amp; Shell</span>
+        <span class="tech-pill pill-python"><span class="dot"></span>Python</span>
+        <span class="tech-pill pill-aws"><span class="dot"></span>AWS</span>
+        <span class="tech-pill pill-terraform"><span class="dot"></span>Terraform</span>
+        <span class="tech-pill pill-docker"><span class="dot"></span>Docker</span>
+        <span class="tech-pill pill-k8s"><span class="dot"></span>Kubernetes</span>
+        <span class="tech-pill pill-cicd"><span class="dot"></span>CI/CD</span>
+        <span class="tech-pill pill-actions"><span class="dot"></span>GitHub Actions</span>
+        <span class="tech-pill pill-prometheus"><span class="dot"></span>Prometheus</span>
+        <span class="tech-pill pill-grafana"><span class="dot"></span>Grafana</span>
+      </div>
+    </section>
+
+    <!-- Focus Areas -->
+    <section class="focus-section">
+      <h2 class="section-title">What I Do</h2>
+      <div class="focus-grid">
+        <div class="focus-card">
+          <div class="focus-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
+          </div>
+          <h3>Cloud Architecture</h3>
+          <p>Designing secure, highly available, and fault-tolerant infrastructure setups on AWS following industry best practices.</p>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m8 3 4 8 5-5 5 15H2L8 3z"></path></svg>
+          </div>
+          <h3>Infrastructure as Code</h3>
+          <p>Declarative and repeatable infrastructure provisioning using Terraform to manage environments reliably.</p>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line></svg>
+          </div>
+          <h3>Kubernetes &amp; Containers</h3>
+          <p>Containerizing applications and orchestrating production-grade workloads on Kubernetes clusters.</p>
+        </div>
+
+        <div class="focus-card">
+          <div class="focus-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M18 15V9a6 6 0 0 0-6-6H6"></path></svg>
+          </div>
+          <h3>CI/CD &amp; Automation</h3>
+          <p>Building streamlined continuous delivery pipelines that accelerate software delivery with zero manual friction.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Connect / Links -->
+    <section class="connect-section">
+      <div class="connect-info">
+        <h3>Connect &amp; Collaborate</h3>
+        <p>Explore my open-source code and professional profile.</p>
+      </div>
+      <div class="social-buttons">
+        <a href="https://github.com/hackacks" target="_blank" rel="noopener noreferrer" class="btn-social">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+          <span>GitHub</span>
+        </a>
+        <a href="https://www.linkedin.com/in/arunkumarn003/" target="_blank" rel="noopener noreferrer" class="btn-social">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          <span>LinkedIn</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      &copy; <span id="year"></span> Arunkumar N &bull; Cloud Architect / DevOps Engineer
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
