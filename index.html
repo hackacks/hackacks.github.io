@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arunkumar N | Cloud Architect &amp; DevOps Engineer</title>
-  <meta name="description" content="Arunkumar N - Cloud Architect & DevOps Engineer specializing in AWS, Linux, Kubernetes, Terraform, and CI/CD.">
+  <title>Arunkumar N | DevOps &amp; Cloud Engineer</title>
+  <meta name="description" content="Arunkumar N - DevOps & Cloud Engineer specializing in AWS, Linux, Kubernetes, Terraform, Docker, and CI/CD automation.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #0b0f17;
@@ -137,6 +137,12 @@
       height: 7px;
       border-radius: 50%;
       background-color: #34d399;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5); }
+      50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(52, 211, 153, 0); }
     }
 
     .hero-name {
@@ -162,6 +168,85 @@
       color: var(--text-muted);
       max-width: 680px;
       line-height: 1.7;
+      margin-bottom: 22px;
+    }
+
+    /* Contact Bar */
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    a.contact-item:hover {
+      color: var(--primary);
+    }
+
+    .contact-item svg {
+      flex-shrink: 0;
+      opacity: 0.7;
+    }
+
+    /* Hero Actions */
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #0b0f17;
+      text-decoration: none;
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      padding: 10px 22px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(56, 189, 248, 0.3);
+    }
+
+    .btn-outline {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text);
+      text-decoration: none;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      padding: 10px 22px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: var(--primary);
+      color: var(--primary);
+      transform: translateY(-1px);
     }
 
     /* Section Component */
@@ -186,6 +271,20 @@
     /* Tech Stack Pills */
     .skills-section {
       margin-bottom: 52px;
+    }
+
+    .tech-category {
+      margin-bottom: 14px;
+    }
+
+    .tech-category-label {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+      display: block;
     }
 
     .tech-list {
@@ -371,6 +470,48 @@
       box-shadow: 0 4px 16px rgba(74, 222, 128, 0.25);
     }
 
+    /* Git */
+    .pill-git {
+      color: #fb923c;
+      background: rgba(251, 146, 60, 0.08);
+      border-color: rgba(251, 146, 60, 0.28);
+    }
+    .pill-git .dot { background: #f97316; box-shadow: 0 0 8px rgba(249, 115, 22, 0.6); }
+    .pill-git:hover {
+      background: rgba(251, 146, 60, 0.16);
+      border-color: #fb923c;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(251, 146, 60, 0.25);
+    }
+
+    /* Jenkins */
+    .pill-jenkins {
+      color: #f87171;
+      background: rgba(248, 113, 113, 0.08);
+      border-color: rgba(248, 113, 113, 0.28);
+    }
+    .pill-jenkins .dot { background: #dc2626; box-shadow: 0 0 8px rgba(220, 38, 38, 0.6); }
+    .pill-jenkins:hover {
+      background: rgba(248, 113, 113, 0.16);
+      border-color: #f87171;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(248, 113, 113, 0.25);
+    }
+
+    /* AI Tools */
+    .pill-ai {
+      color: #a78bfa;
+      background: rgba(167, 139, 250, 0.08);
+      border-color: rgba(167, 139, 250, 0.28);
+    }
+    .pill-ai .dot { background: #8b5cf6; box-shadow: 0 0 8px rgba(139, 92, 246, 0.6); }
+    .pill-ai:hover {
+      background: rgba(167, 139, 250, 0.16);
+      border-color: #a78bfa;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(167, 139, 250, 0.25);
+    }
+
     /* Focus Area Cards */
     .focus-section {
       margin-bottom: 52px;
@@ -415,6 +556,186 @@
       line-height: 1.55;
     }
 
+    /* Projects Section */
+    .projects-section {
+      margin-bottom: 52px;
+    }
+
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 28px;
+      margin-bottom: 16px;
+      transition: all 0.25s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--accent));
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .project-card:hover {
+      border-color: var(--border-hover);
+      background: var(--card-hover);
+      transform: translateY(-2px);
+    }
+
+    .project-card:hover::before {
+      opacity: 1;
+    }
+
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .project-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .project-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-left: 4px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .project-link {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--primary);
+      text-decoration: none;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      padding: 5px 12px;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: all 0.2s ease;
+    }
+
+    .project-link:hover {
+      background: rgba(56, 189, 248, 0.18);
+      border-color: var(--primary);
+      transform: translateY(-1px);
+    }
+
+    .project-tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .project-tag {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      background: rgba(129, 140, 248, 0.08);
+      border: 1px solid rgba(129, 140, 248, 0.15);
+      padding: 3px 10px;
+      border-radius: 5px;
+    }
+
+    .project-details {
+      list-style: none;
+      padding: 0;
+    }
+
+    .project-details li {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    .project-details li::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--primary);
+      font-size: 0.85rem;
+    }
+
+    /* Education Section */
+    .education-section {
+      margin-bottom: 52px;
+    }
+
+    .edu-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      transition: all 0.25s ease;
+      flex-wrap: wrap;
+    }
+
+    .edu-card:hover {
+      border-color: var(--border-hover);
+      background: var(--card-hover);
+    }
+
+    .edu-info h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .edu-info p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    .edu-meta {
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    .edu-year {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .edu-score {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
     /* Social / Connect Bar */
     .connect-section {
       background: var(--card-bg);
@@ -442,6 +763,7 @@
     .social-buttons {
       display: flex;
       gap: 12px;
+      flex-wrap: wrap;
     }
 
     .btn-social {
@@ -475,6 +797,18 @@
       text-align: center;
     }
 
+    /* Scroll animations */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
     @media (max-width: 600px) {
       .hero-name {
         font-size: 2.1rem;
@@ -492,6 +826,25 @@
       .btn-social {
         flex: 1;
         justify-content: center;
+      }
+      .contact-bar {
+        gap: 10px;
+      }
+      .hero-actions {
+        flex-direction: column;
+      }
+      .hero-actions a {
+        text-align: center;
+        justify-content: center;
+      }
+      .edu-card {
+        flex-direction: column;
+      }
+      .edu-meta {
+        text-align: left;
+      }
+      .project-header {
+        flex-direction: column;
       }
     }
   </style>
@@ -523,42 +876,71 @@
     <section class="hero">
       <div class="badge">
         <span class="badge-dot"></span>
-        <span>Cloud Architect &amp; DevOps Engineer</span>
+        <span>DevOps Engineer | Cloud Engineer</span>
       </div>
       <h1 class="hero-name">Arunkumar N</h1>
-      <div class="hero-title">Architecting Resilient Cloud &amp; Infrastructure</div>
+      <div class="hero-title">Building Scalable Cloud &amp; Infrastructure</div>
       <p class="hero-bio">
-        Passionate about designing scalable cloud systems, automating infrastructure deployments, and optimizing containerized workloads with modern DevOps practices.
+        Computer Science graduate and aspiring DevOps/Cloud Engineer with hands-on experience building and
+        deploying cloud-native applications on AWS. Skilled in Linux, Python, Bash, Git/GitHub, CI/CD automation,
+        Infrastructure as Code (IaC), and monitoring tools. Passionate about infrastructure automation,
+        cloud engineering, and designing scalable and reliable cloud systems.
       </p>
+
+      <!-- Contact Info -->
+      <div class="contact-bar">
+        <a href="mailto:arunkumarnagooran68@gmail.com" class="contact-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          arunkumarnagooran68@gmail.com
+        </a>
+        <span class="contact-item">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+          Chennai, India
+        </span>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="hero-actions">
+        <a href="ARUNKUMAR_N_Resume.pdf" class="btn-primary" download>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+          Download Resume
+        </a>
+        <a href="mailto:arunkumarnagooran68@gmail.com" class="btn-outline">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          Get in Touch
+        </a>
+      </div>
     </section>
 
     <!-- Tech Stack -->
-    <section class="skills-section">
+    <section class="skills-section fade-in">
       <h2 class="section-title">Core Technologies</h2>
       <div class="tech-list">
         <span class="tech-pill pill-linux"><span class="dot"></span>Linux</span>
-        <span class="tech-pill pill-bash"><span class="dot"></span>Bash &amp; Shell</span>
         <span class="tech-pill pill-python"><span class="dot"></span>Python</span>
+        <span class="tech-pill pill-bash"><span class="dot"></span>Bash &amp; Shell</span>
         <span class="tech-pill pill-aws"><span class="dot"></span>AWS</span>
         <span class="tech-pill pill-terraform"><span class="dot"></span>Terraform</span>
         <span class="tech-pill pill-docker"><span class="dot"></span>Docker</span>
         <span class="tech-pill pill-k8s"><span class="dot"></span>Kubernetes</span>
-        <span class="tech-pill pill-cicd"><span class="dot"></span>CI/CD</span>
+        <span class="tech-pill pill-git"><span class="dot"></span>Git &amp; GitHub</span>
         <span class="tech-pill pill-actions"><span class="dot"></span>GitHub Actions</span>
+        <span class="tech-pill pill-jenkins"><span class="dot"></span>Jenkins</span>
         <span class="tech-pill pill-prometheus"><span class="dot"></span>Prometheus</span>
         <span class="tech-pill pill-grafana"><span class="dot"></span>Grafana</span>
+        <span class="tech-pill pill-ai"><span class="dot"></span>Copilot &amp; Gemini CLI</span>
       </div>
     </section>
 
     <!-- Focus Areas -->
-    <section class="focus-section">
+    <section class="focus-section fade-in">
       <h2 class="section-title">What I Do</h2>
       <div class="focus-grid">
         <div class="focus-card">
           <div class="focus-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"></path></svg>
           </div>
-          <h3>Cloud Architecture</h3>
+          <h3>Cloud Engineering</h3>
           <p>Designing secure, highly available, and fault-tolerant infrastructure setups on AWS following industry best practices.</p>
         </div>
 
@@ -583,13 +965,107 @@
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M18 15V9a6 6 0 0 0-6-6H6"></path></svg>
           </div>
           <h3>CI/CD &amp; Automation</h3>
-          <p>Building streamlined continuous delivery pipelines that accelerate software delivery with zero manual friction.</p>
+          <p>Building streamlined continuous delivery pipelines with GitHub Actions &amp; Jenkins that accelerate software delivery.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects -->
+    <section class="projects-section fade-in">
+      <h2 class="section-title">Projects</h2>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <span class="project-name">HabitFlow</span>
+            <span class="project-subtitle">— Habit Tracker</span>
+          </div>
+          <div class="project-links">
+            <a href="https://habits.hackack.tech" target="_blank" rel="noopener noreferrer" class="project-link">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              Live
+            </a>
+            <a href="https://github.com/hackacks/habit-tracker" target="_blank" rel="noopener noreferrer" class="project-link">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              Code
+            </a>
+          </div>
+        </div>
+        <div class="project-tech-tags">
+          <span class="project-tag">AWS ECS</span>
+          <span class="project-tag">AWS ALB</span>
+          <span class="project-tag">RDS PostgreSQL</span>
+          <span class="project-tag">Docker</span>
+          <span class="project-tag">GitHub Actions</span>
+        </div>
+        <ul class="project-details">
+          <li>Built and deployed a containerized habit-tracking application on AWS ECS</li>
+          <li>Used PostgreSQL on Amazon RDS database for storing and retrieving habit data</li>
+          <li>Containerized the application using Docker and automated deployment workflows using GitHub Actions</li>
+        </ul>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div>
+            <span class="project-name">Shortener</span>
+            <span class="project-subtitle">— Serverless URL Shortener</span>
+          </div>
+          <div class="project-links">
+            <a href="https://shortener.hackack.tech" target="_blank" rel="noopener noreferrer" class="project-link">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+              Live
+            </a>
+            <a href="https://github.com/hackacks/url-shortener" target="_blank" rel="noopener noreferrer" class="project-link">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+              Code
+            </a>
+          </div>
+        </div>
+        <div class="project-tech-tags">
+          <span class="project-tag">CloudFront</span>
+          <span class="project-tag">S3</span>
+          <span class="project-tag">API Gateway</span>
+          <span class="project-tag">AWS Lambda</span>
+          <span class="project-tag">DynamoDB</span>
+        </div>
+        <ul class="project-details">
+          <li>Built a serverless URL-shortening application using AWS Lambda for backend execution</li>
+          <li>Exposed application endpoints through Amazon API Gateway</li>
+          <li>Used Amazon DynamoDB for storing URL mappings and retrieving shortened URLs</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="education-section fade-in">
+      <h2 class="section-title">Education</h2>
+
+      <div class="edu-card">
+        <div class="edu-info">
+          <h3>Bachelor of Computer Science</h3>
+          <p>H.H. The Rajah's College | Bharathidasan University</p>
+        </div>
+        <div class="edu-meta">
+          <div class="edu-year">2023 – 2026</div>
+          <div class="edu-score">GPA: 7.95 / 10 · 73%</div>
+        </div>
+      </div>
+
+      <div class="edu-card">
+        <div class="edu-info">
+          <h3>Higher Secondary — Computer Maths</h3>
+          <p>St. Arulanandar Higher Secondary School</p>
+        </div>
+        <div class="edu-meta">
+          <div class="edu-year">2021 – 2023</div>
+          <div class="edu-score">468 / 600 · 81%</div>
         </div>
       </div>
     </section>
 
     <!-- Connect / Links -->
-    <section class="connect-section">
+    <section class="connect-section fade-in">
       <div class="connect-info">
         <h3>Connect &amp; Collaborate</h3>
         <p>Explore my open-source code and professional profile.</p>
@@ -603,6 +1079,10 @@
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
           <span>LinkedIn</span>
         </a>
+        <a href="mailto:arunkumarnagooran68@gmail.com" class="btn-social">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
+          <span>Email</span>
+        </a>
       </div>
     </section>
   </main>
@@ -610,12 +1090,23 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      &copy; <span id="year"></span> Arunkumar N &bull; Cloud Architect / DevOps Engineer
+      &copy; <span id="year"></span> Arunkumar N &bull; DevOps &amp; Cloud Engineer
     </div>
   </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Scroll-triggered fade-in animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
