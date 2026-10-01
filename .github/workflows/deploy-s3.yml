@@ -29,7 +29,7 @@ jobs:
       - name: Deploy to S3
         run: |
           BUCKET_NAME=$(aws ssm get-parameter --name "/portfolio/s3_bucket_name" --query "Parameter.Value" --output text)
-          aws s3 sync ../.files s3://$BUCKET_NAME --delete
+          aws s3 sync ./docs s3://$BUCKET_NAME --delete
       
       #Invalidate CloudFront cache
       - name: Invalidate CloudFront cache
