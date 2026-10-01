@@ -1,0 +1,38 @@
+#Github action to deploy the site to S3 bucket, invalidates the CloudFront cache
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+env:
+  AWS_REGION: ap-south-1
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      #Checkout the code from the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      #Configure AWS credentials
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: arn:aws:iam::${{ secrets.AWS_ACCOUNT_ID }}:role/portfolio-github-actions-role
+          aws-region: ${{ env.AWS_REGION }}
+      
+      #Deploy to S3
+      - name: Deploy to S3
+        run: |
+          BUCKET_NAME=$(aws ssm get-parameter --name "/portfolio/s3_bucket_name" --query "Parameter.Value" --output text)
+          aws s3 sync ../.files s3://$BUCKET_NAME --delete
+      
+      #Invalidate CloudFront cache
+      - name: Invalidate CloudFront cache
+        run: |
+          DISTRIBUTION_ID=$(aws ssm get-parameter --name "/portfolio/cloudfront_distribution_id" --query "Parameter.Value" --output text)
+          aws cloudfront create-invalidation --distribution-id $DISTRIBUTION_ID --paths "/*"
