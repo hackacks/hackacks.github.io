@@ -1,4 +1,10 @@
 terraform {
+  backend "s3" {
+    bucket         = "state-bucket-ji0qu"
+    key            = "portfolio/terraform.tfstate"
+    use_lockfile   = true
+    region         = "ap-south-1"
+  }
   required_version = ">= 1.5.0"
   required_providers {
     aws = {
@@ -261,7 +267,7 @@ resource "aws_iam_role" "portfolio_github_actions_role" {
         Action = "sts:AssumeRoleWithWebIdentity"
         Condition = {
           StringLike = {
-            "token.actions.githubusercontent.com:sub" = "repo:hackacks/hackacks.github.io:*"
+            "token.actions.githubusercontent.com:sub" = "repo:hackacks*/hackacks.github.io*:*"
           }
         }
       }
